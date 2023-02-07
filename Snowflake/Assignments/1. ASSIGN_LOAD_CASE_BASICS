@@ -1,7 +1,7 @@
-use database SALES;
+USE DATABASE SALES_DATA;
 USE SCHEMA PUBLIC;
 
-----1. Load table and create Primary Key
+----1. Load Table and Create Primary Key
 
 CREATE OR REPLACE TABLE HI_SALES_DATA
 (order_id VARCHAR(20),
@@ -34,6 +34,7 @@ DESCRIBE TABLE HI_SALES_DATA;
 SELECT * FROM HI_SALES_DATA;
 
 ----2. Change the Primary key to Order Id Column.
+
 ALTER TABLE HI_SALES_DATA
 DROP PRIMARY KEY;
 
@@ -42,6 +43,7 @@ ADD PRIMARY KEY(ORDER_ID);
 
 
 ----3. Check the Data Type for Order Date and Ship Date and mention in what type it should be?
+
 UPDATE HI_SALES_DATA
 SET ORDER_DATE = CAST(ORDER_DATE AS DATE);
 
@@ -55,6 +57,7 @@ SELECT*, REGEXP_SUBSTR(ORDER_ID,'[[:digit:]]+',1,2) AS ORDER_EXTRACT
 FROM HI_SALES_DATA;
 
 ----5. Create a new column called Discount Flag and categorize it based on discount. Use ‘Yes’ if the discount is greater than zero else ‘No’.
+
 CREATE OR REPLACE TABLE HI_SALES_DATA AS
 SELECT *,
       CASE
