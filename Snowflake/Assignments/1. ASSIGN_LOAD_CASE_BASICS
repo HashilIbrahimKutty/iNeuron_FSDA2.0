@@ -52,7 +52,7 @@ SET SHIP_DATE = TO_CHAR(DATE(SHIP_DATE,'DD-MM-YYYY'),'YYYY-MM-DD');
 
 CREATE OR REPLACE TABLE HI_SALES_DATA AS
 SELECT*, REGEXP_SUBSTR(ORDER_ID,'[[:digit:]]+',1,2) AS ORDER_EXTRACT
-from HI_SALES_DATA;
+FROM HI_SALES_DATA;
 
 ----5. Create a new column called Discount Flag and categorize it based on discount. Use ‘Yes’ if the discount is greater than zero else ‘No’.
 CREATE OR REPLACE TABLE HI_SALES_DATA AS
